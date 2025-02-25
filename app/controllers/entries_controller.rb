@@ -13,6 +13,6 @@ class EntriesController < ApplicationController
     @entry.save
     @place = Place.find_by({ "id" => @entry["place_id"] })
     @entries = Entry.where({ "place_id" => @place["id"] })
-    render "places/show"
+    redirect_to "/places/#{params["place_id"]}"
   end
 end

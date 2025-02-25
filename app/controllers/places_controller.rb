@@ -17,6 +17,6 @@ class PlacesController < ApplicationController
     @place["name"] = params["name"]
     @place.save
     @places = Place.all
-    render :index
+    redirect_to "/places"
   end
 end
