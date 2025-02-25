@@ -11,8 +11,6 @@ class EntriesController < ApplicationController
     @entry["occurred_on"] = params["occurred_on"]
     @entry["place_id"] = params["place_id"]
     @entry.save
-    @place = Place.find_by({ "id" => @entry["place_id"] })
-    @entries = Entry.where({ "place_id" => @place["id"] })
     redirect_to "/places/#{params["place_id"]}"
   end
 end
